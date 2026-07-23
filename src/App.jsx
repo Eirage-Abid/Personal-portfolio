@@ -16,10 +16,10 @@ const App = () => {
     < Hero />
     <AnimatedCounter />
     <Experience />
-        {/* <ShowcaseSection />
+        {/* {/* <ShowcaseSection /> */}
         <FeatureCards />
      
-        <TechStack /> */}
+        {/* <TechStack /> */} 
         {/* <Testimonials /> */}
         {/* <Contact /> */}
     </>

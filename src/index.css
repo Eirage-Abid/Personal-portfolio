@@ -679,6 +679,46 @@ section {
 
   .bg-gradient-wrapper > * { position: relative; z-index: 2; }
 
+  /* Add a global component for headings in all the sections of the portfolio site*/
+.section-title {
+  /* match hero font-family (Inter / system sans) and heavy weight */
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  /* font-weight: 700; */
+  margin: 0;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-size: 2.25rem; 
+  color: #0e0e10;
+  text-align: center;
+}
+
+/* medium screens */
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 3rem;
+  }
+}
+
+/* large / hero-like screens */
+@media (min-width: 1280px) {
+  .section-title {
+    font-size: 3.75rem; /* ~60px */
+  }
+}
+
+/* small helper subtitle style (optional) */
+.section-subtitle {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: inherit;
+  opacity: 0.85;
+}
+
+
   /* Make AnimatedCounter cards use the same animated border/glow as experience cards */
   #counter .card {
     position: relative;
