@@ -17,8 +17,8 @@ const App = () => {
     <AnimatedCounter />
     <Experience />
     <ShowcaseSection />
-    {/* <FeatureCards />
-    <TechStack />  */}
+     <FeatureCards />
+    <TechStack />  
     {/* <Testimonials /> */}
     {/* <Contact /> */}
     </>

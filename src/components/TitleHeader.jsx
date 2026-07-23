@@ -8,6 +8,5 @@ const TitleHeader = ({ title, subtitle, className = "" }) => {
     </header>
   );
 };
-;
-  
+
   export default TitleHeader;
