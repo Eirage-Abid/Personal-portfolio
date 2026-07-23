@@ -276,6 +276,41 @@ const navLinks = [
     },
   ];
   
+  const showcaseCards = [
+    {
+      id: 1,
+      title: "Serenessa - Women's Safety App",
+      subtitle: "A seamless ride-sharing experience built with React Native, Expo & TailwindCSS",
+      thumbnail: "/images/project1.png",
+      githubLink: "https://github.com/Eirage-Abid/ryde",
+      spanClassName: "md:col-span-7",
+    },
+    {
+      id: 2,
+      title: "Text Treasure - E-book Library",
+      subtitle: "Modern e-book discovery and reading platform",
+      thumbnail: "/images/project2.png",
+      githubLink: "https://github.com/Eirage-Abid/text-treasure",
+      spanClassName: "md:col-span-5",
+    },
+    {
+      id: 3,
+      title: "YC Directory - Startup Showcase",
+      subtitle: "A directory app showcasing innovative startups and founders",
+      thumbnail: "/images/project3.png",
+      githubLink: "https://github.com/Eirage-Abid/yc-directory",
+      spanClassName: "md:col-span-5",
+    },
+    {
+      id: 4,
+      title: "Your Fourth Project",
+      subtitle: "Project description goes here",
+      thumbnail: "/images/project4.png",
+      githubLink: "https://github.com/Eirage-Abid/project4",
+      spanClassName: "md:col-span-7",
+    },
+  ];
+  
   export {
     words,
     abilities,
@@ -288,4 +323,5 @@ const navLinks = [
     techStackIcons,
     techStackImgs,
     navLinks,
+    showcaseCards,
   };

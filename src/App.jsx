@@ -16,9 +16,9 @@ const App = () => {
     < Hero />
     <AnimatedCounter />
     <Experience />
-    {/* {/* <ShowcaseSection /> */}
-    <FeatureCards />
-    <TechStack /> 
+    <ShowcaseSection />
+    {/* <FeatureCards />
+    <TechStack />  */}
     {/* <Testimonials /> */}
     {/* <Contact /> */}
     </>
