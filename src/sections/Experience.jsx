@@ -85,7 +85,7 @@ const Experience = () => {
           start: "top 60%",
         },
       });
-    }, "<"); // position parameter - insert at the start of the animation
+    });
   }, []);
 
   return (
