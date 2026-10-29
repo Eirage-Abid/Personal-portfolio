@@ -75,7 +75,7 @@ const navLinks = [
       imgPath: "/images/logos/company-logo-13.png",
     },
      {
-      imgPath: "/images/logos/company-logo-14.png",
+      imgPath: "/images/logos/company-logo-14.jpeg",
     }
     
 
@@ -96,29 +96,6 @@ const navLinks = [
       imgPath: "/images/time.png",
       title: "On-Time Delivery",
       desc: "Making sure projects are completed on schedule, with quality & attention to detail.",
-    },
-  ];
-  
-  const techStackImgs = [
-    {
-      name: "React Developer",
-      imgPath: "/images/logos/react.png",
-    },
-    {
-      name: "Python Developer",
-      imgPath: "/images/logos/python.svg",
-    },
-    {
-      name: "Backend Developer",
-      imgPath: "/images/logos/node.png",
-    },
-    {
-      name: "Interactive Developer",
-      imgPath: "/images/logos/three.png",
-    },
-    {
-      name: "Project Manager",
-      imgPath: "/images/logos/git.svg",
     },
   ];
   
@@ -197,21 +174,6 @@ const navLinks = [
     ],
   },
 ];
-  const expLogos = [
-    {
-      name: "logo1",
-      imgPath: "/images/futurenostics.jpeg",
-    },
-    {
-      name: "logo2",
-      imgPath: "/images/icreativez.png",
-    },
-    {
-      name: "logo3",
-      imgPath: "/images/railfood.jpeg",
-    },
-  ];
-  
   const testimonials = [
     {
       name: "Esther Howard",
@@ -317,11 +279,9 @@ const navLinks = [
     logoIconsList,
     counterItems,
     expCards,
-    expLogos,
     testimonials,
     socialImgs,
     techStackIcons,
-    techStackImgs,
     navLinks,
     showcaseCards,
   };
