@@ -4,6 +4,7 @@ import gsap from "gsap";
 import TitleHeader from "../components/TitleHeader";
 import TechIconCardExperience from "../components/models/tech_logos/TechIconCardExperience";
 import { techStackIcons } from "../constants";
+import { hasWebGL } from "@/lib/utils";
 
 const TechStack = () => {
   // Animate the tech cards in the skills section
@@ -55,10 +56,19 @@ const TechStack = () => {
                   component is hovered. */}
               <div className="tech-card-animated-bg" />
               <div className="tech-card-content">
-                {/* The tech-icon-wrapper div contains the TechIconCardExperience component, 
-                    which renders the 3D model of the tech stack icon. */}
+                {/* The tech-icon-wrapper div contains the TechIconCardExperience component,
+                    which renders the 3D model of the tech stack icon. Without WebGL, the flat
+                    logo is shown instead so the card isn't empty. */}
                 <div className="tech-icon-wrapper">
-                  <TechIconCardExperience model={techStackIcon} />
+                  {hasWebGL ? (
+                    <TechIconCardExperience model={techStackIcon} />
+                  ) : (
+                    <img
+                      src={techStackIcon.imgPath}
+                      alt={techStackIcon.name}
+                      className="size-28 object-contain"
+                    />
+                  )}
                 </div>
                 {/* The padding-x and w-full classes are used to add horizontal padding to the 
                     text and make it take up the full width of the component. */}
