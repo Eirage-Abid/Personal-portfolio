@@ -98,7 +98,7 @@ section {
   }
 
   .hero-layout {
-    @apply relative z-10 xl:mt-20 mt-32 md:h-dvh h-[80vh] flex xl:items-center items-start justify-center;
+    @apply relative z-10 pt-32 md:pt-40 pb-10 flex xl:items-center items-start justify-center;
   }
 
   .hero-text {
@@ -311,9 +311,8 @@ section {
     box-shadow: 0 6px 18px rgba(16,24,40,0.06);
   }
 
-  /* Animated outer glow + matching border for experience cards.
-     - The glow is rendered with a blurred pseudo-element (::before) positioned outside the card (negative inset).
-     - The CSS custom property --exp-glow is animated through keyframes and used for the border and glow color.
+  /* Animated border for experience cards.
+     - The CSS custom property --exp-glow is animated through keyframes and used for the border color.
      - The inner card background remains plain white (no gradient inside). */
   #experience .card {
     position: relative;
@@ -326,20 +325,24 @@ section {
     animation: expGlowCycle 8s linear infinite;
   }
 
+  /* Disabled: blurred outer halo for experience cards.
+     This rule never applied before (a stray comment marker broke it), so it is kept
+     commented out to avoid changing the current look. Note that `.card` has
+     `overflow: hidden`, which would clip a halo drawn outside the card.
+
   #experience .card::before {
     content: "";
     position: absolute;
-    /* extend outside the card so the gradient/glow sits on the outer side only */
     inset: -10px;
     border-radius: inherit;
     z-index: 0;
     pointer-events: none;
-    /* use a soft radial spread based on the animated color */
     background: radial-gradient(circle at 30% 20%, var(--exp-glow) 0%, transparent 30%),
                 radial-gradient(circle at 70% 80%, rgba(255,255,255,0.05) 0%, transparent 25%);
     filter: blur(18px) saturate(140%);
     opacity: 0.95;
   }
+  */
 
   /* keyframes that update the CSS variable used for glow/border color */
   @keyframes expGlowCycle {
@@ -356,7 +359,18 @@ section {
   }
 
   .timeline-wrapper {
-    @apply absolute top-0 xl:left-[35.5vw] md:left-10 left-5 h-full flex justify-center;
+    @apply absolute top-0 md:left-10 left-5 h-full flex justify-center;
+  }
+
+  /* Experience section intro: same look as the hero heading, a little smaller for the narrower column */
+  .exp-intro {
+    @apply flex flex-col;
+    h1 {
+      @apply text-black md:text-[48px] text-[30px] font-semibold leading-tight;
+    }
+    p {
+      @apply text-black-50 md:text-xl md:leading-relaxed mt-6 max-w-xl;
+    }
   }
 
   .timeline {
@@ -367,9 +381,6 @@ section {
     @apply md:size-20 size-10 flex-none rounded-full flex justify-center items-center md:-translate-y-7 border border-black-50 bg-black-100;
   }
 
-  .exp-card-wrapper {
-    @apply flex flex-col-reverse xl:flex-row xl:gap-20 gap-10 justify-between;
-  }
 
   .gradient-edge {
     @apply w-36 h-full absolute bottom-0 z-20;

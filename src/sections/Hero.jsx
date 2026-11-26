@@ -69,11 +69,12 @@ const Hero = () => {
                 </span>
               </h1>
               <h1>into Solutions</h1>
-              <h1>that holds Purpose</h1>
+              <h1>that hold Purpose</h1>
             </div>
 
-            <p className="text-black-50 md:text-xl relative z-10 pointer-events-none">
-              Hi, I’m Eirage, a developer who loves learning, building, and contributing where I can.
+            <p className="text-black-50 md:text-xl md:leading-relaxed max-w-xl relative z-10 pointer-events-none">
+             Hi, I'm Eirage, a software engineer who believes good code should solve real problems. 
+             I build web and mobile apps with care, keep learning along the way, and love contributing to work that matters.
             </p>
 
             <Button
