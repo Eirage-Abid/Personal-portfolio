@@ -366,10 +366,10 @@ section {
   .exp-intro {
     @apply flex flex-col;
     h1 {
-      @apply text-black md:text-[48px] text-[30px] font-semibold leading-tight;
+      @apply text-black xl:text-[68px] md:text-[60px] text-[36px] font-bold leading-[1.15] tracking-tight;
     }
     p {
-      @apply text-black-50 md:text-xl md:leading-relaxed mt-6 max-w-xl;
+      @apply text-black-50 md:text-xl md:leading-relaxed mt-8 max-w-xl;
     }
   }
 
@@ -491,6 +491,45 @@ section {
 }
 
 /* Hero Text slider ends */
+
+/* Experience heading word slider: one line tall, cycles through words.
+   The track holds 4 words + the first word repeated, so the loop is seamless. */
+.exp-slide {
+  display: inline-block;
+  height: 1.15em;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.exp-slide-track {
+  display: flex;
+  flex-direction: column;
+  animation: expWordSlider 10s infinite cubic-bezier(0.9, 0.01, 0.3, 0.99);
+}
+
+.exp-slide-word {
+  display: block;
+  height: 1.15em;
+  white-space: nowrap;
+  background: linear-gradient(90deg, #111 0%, #52aeff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes expWordSlider {
+  0%, 20% { transform: translateY(0); }
+  25%, 45% { transform: translateY(-20%); }
+  50%, 70% { transform: translateY(-40%); }
+  75%, 95% { transform: translateY(-60%); }
+  100% { transform: translateY(-80%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .exp-slide-track {
+    animation: none;
+  }
+}
 
 .gradient-line {
   width: 2px;
