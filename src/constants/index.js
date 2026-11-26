@@ -28,6 +28,9 @@ const navLinks = [
     { text: "Code", imgPath: "/images/code.svg" },
   ];
   
+  // Rotating words in the Experience section heading ("Building for ___")
+  const expWords = ["Web & Mobile", "Real Users", "Startups", "Every Screen"];
+
   const counterItems = [
     { value: 15, suffix: "+", label: "Years of Experience" },
     { value: 200, suffix: "+", label: "Satisfied Clients" },
@@ -69,13 +72,13 @@ const navLinks = [
     {
       imgPath: "/images/logos/company-logo-11.png",
     }, {
-      imgPath: "/images/logos/company-logo-12.jpeg",
+      imgPath: "/images/logos/futurenostics.jpeg",
     },
      {
-      imgPath: "/images/logos/company-logo-13.png",
+      imgPath: "/images/logos/icreatives.png",
     },
      {
-      imgPath: "/images/logos/company-logo-14.jpeg",
+      imgPath: "/images/logos/railfood.jpeg",
     }
     
 
@@ -139,13 +142,14 @@ const navLinks = [
   
   const expCards = [
     {
-    company: "Hostinger", // TODO: confirm company name
+    company: "Futurenostics",
     type: "Full-time",
     highlight:
       "Keeping a legacy backend stable while shipping frontend features each sprint.",
     stack: ["TODO", "TODO", "TODO"], // TODO: replace with real tech stack
-    logoPath: "/images/logo1.png",
-    title: "Associate Software Engineer",
+    logoPath: "/images/logos/futurenostics.jpeg",
+    linkedinUrl: "https://www.linkedin.com/company/futurenostics/posts/?feedView=all",
+    title: "Software Engineer",
     date: "October 2025 - Present",
     responsibilities: [
       "Maintaining and debugging a legacy backend system to ensure stability and performance.",
@@ -154,28 +158,29 @@ const navLinks = [
     ],
   },
   {
-    company: "Appwrite", // TODO: confirm company name
+    company: "iCreativez",
     type: "Intern → Junior",
     highlight:
       "Promoted from intern to junior developer while shipping production mobile apps.",
     stack: ["Flutter", "Dart", "Firebase Auth", "Firestore", "Firebase Storage"],
-    logoPath: "/images/logo2.png",
-    title: "Flutter Developer (Intern → Junior)",
+    logoPath: "/images/logos/icreatives.png",
+    linkedinUrl: "https://www.linkedin.com/company/icreativez/posts/?feedView=all",
+    title: "Flutter Developer",
     date: "November 2024 - June 2025",
     responsibilities: [
       "Progressed from Flutter Intern to Junior Flutter Developer by delivering consistent performance.",
       "Built and contributed to production-level mobile applications for the company portfolio.",
-      "Integrated Firebase services including authentication, database, and storage.",
       "Developed strong foundations in UI design, state management, and scalable application structure.",
     ],
   },
   {
-    company: "TODO: real company name", // TODO: replace (current Docker logo is a template placeholder)
+    company: "RailFood",
     type: "Internship",
     highlight:
       "Built a real-world restaurant app end to end with Kotlin and a PostgreSQL backend.",
     stack: ["Kotlin", "Jetpack Compose", "PostgreSQL"],
-    logoPath: "/images/logo3.png", // TODO: replace with the real company logo
+    logoPath: "/images/logos/railfood.jpeg",
+    linkedinUrl: "https://www.linkedin.com/company/railfoodpk/posts/?feedView=all",
     title: "Android Developer Intern",
     date: "June 2024 - September 2024",
     responsibilities: [
@@ -290,6 +295,7 @@ const navLinks = [
     logoIconsList,
     counterItems,
     expCards,
+    expWords,
     testimonials,
     socialImgs,
     techStackIcons,

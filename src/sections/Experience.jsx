@@ -1,7 +1,7 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { expCards } from "../constants";
+import { expCards, expWords } from "../constants";
 import TitleHeader from "../components/TitleHeader";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -87,14 +87,25 @@ const Experience = () => {
 
         <div className="md:mt-24 mt-16 flex flex-col xl:flex-row xl:gap-20 gap-14">
           {/* Left: hero-style summary of my experience */}
-          <div className="xl:w-2/6">
+          <div className="xl:w-2/6 xl:self-center">
             <div className="exp-intro">
               <h1>2+ Years of</h1>
               <h1>Building for</h1>
-              <h1>Web &amp; Mobile</h1>
+              <h1>
+                {/* Rotating word, like the hero's word slider */}
+                <span className="exp-slide">
+                  <span className="exp-slide-track">
+                    {[...expWords, expWords[0]].map((word, index) => (
+                      <span key={index} className="exp-slide-word">
+                        {word}
+                      </span>
+                    ))}
+                  </span>
+                </span>
+              </h1>
               <p>
-                From an Android internship to a Flutter role and now an
-                Associate Software Engineer, I&apos;ve grown by shipping real
+                From an Android internship to a Flutter role and now a
+                Software Engineer, I&apos;ve grown by shipping real
                 products, keeping systems stable, and learning on every team.
               </p>
             </div>
@@ -112,9 +123,30 @@ const Experience = () => {
               {expCards.map((card) => (
                 <div key={card.title} className="flex items-start">
                   <div className="expText flex md:gap-10 gap-5 relative z-40">
-                    <div className="timeline-logo">
-                      <img src={card.logoPath} alt="logo" />
-                    </div>
+                    {card.linkedinUrl ? (
+                      <a
+                        href={card.linkedinUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${card.company} on LinkedIn`}
+                        title={`${card.company} on LinkedIn`}
+                        className="timeline-logo transition hover:scale-105 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2"
+                      >
+                        <img
+                          src={card.logoPath}
+                          alt={`${card.company} logo`}
+                          className="size-full rounded-full object-contain p-1"
+                        />
+                      </a>
+                    ) : (
+                      <div className="timeline-logo">
+                        <img
+                          src={card.logoPath}
+                          alt={`${card.company} logo`}
+                          className="size-full rounded-full object-contain p-1"
+                        />
+                      </div>
+                    )}
                     <div>
                       <h1 className="font-semibold text-3xl">{card.title}</h1>
                       <p className="my-5 text-black-50">🗓️&nbsp;{card.date}</p>
