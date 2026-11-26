@@ -139,9 +139,11 @@ const navLinks = [
   
   const expCards = [
     {
-    review:
-      "Eirage communicates clearly, adapts quickly, and consistently delivers tasks on time while handling both backend systems and frontend features.",
-    imgPath: "/images/exp1.png",
+    company: "Hostinger", // TODO: confirm company name
+    type: "Full-time",
+    highlight:
+      "Keeping a legacy backend stable while shipping frontend features each sprint.",
+    stack: ["TODO", "TODO", "TODO"], // TODO: replace with real tech stack
     logoPath: "/images/logo1.png",
     title: "Associate Software Engineer",
     date: "October 2025 - Present",
@@ -152,9 +154,11 @@ const navLinks = [
     ],
   },
   {
-    review:
-      "Eirage showed consistent growth from intern to developer, with strong communication skills and a reliable approach to delivering high-quality work on time.",
-    imgPath: "/images/exp2.png",
+    company: "Appwrite", // TODO: confirm company name
+    type: "Intern → Junior",
+    highlight:
+      "Promoted from intern to junior developer while shipping production mobile apps.",
+    stack: ["Flutter", "Dart", "Firebase Auth", "Firestore", "Firebase Storage"],
     logoPath: "/images/logo2.png",
     title: "Flutter Developer (Intern → Junior)",
     date: "November 2024 - June 2025",
@@ -166,10 +170,12 @@ const navLinks = [
     ],
   },
   {
-    review:
-      "Eirage contributed effectively in a fast-paced environment, maintaining clear communication and delivering features with a focus on performance and scalability.",
-    imgPath: "/images/exp3.png",
-    logoPath: "/images/logo3.png",
+    company: "TODO: real company name", // TODO: replace (current Docker logo is a template placeholder)
+    type: "Internship",
+    highlight:
+      "Built a real-world restaurant app end to end with Kotlin and a PostgreSQL backend.",
+    stack: ["Kotlin", "Jetpack Compose", "PostgreSQL"],
+    logoPath: "/images/logo3.png", // TODO: replace with the real company logo
     title: "Android Developer Intern",
     date: "June 2024 - September 2024",
     responsibilities: [
@@ -247,34 +253,34 @@ const navLinks = [
     {
       id: 1,
       title: "Serenessa - Women's Safety App",
-      subtitle: "A seamless ride-sharing experience built with React Native, Expo & TailwindCSS",
-      thumbnail: "/images/project1.png",
-      githubLink: "https://github.com/Eirage-Abid/ryde",
-      spanClassName: "md:col-span-7",
+      subtitle: "Serenessa aims to empower women by providing real-time protection, safe zone monitoring, community-driven awareness, and secure communication with emergency contacts.",
+      thumbnail: "src/assets/work-experience/serenessa-banner.png",
+      githubLink: "https://github.com/Eirage-Abid/serenessa_first_versionn",
+      aspect: 1920 / 1080,
     },
     {
       id: 2,
       title: "Text Treasure - E-book Library",
-      subtitle: "Modern e-book discovery and reading platform",
-      thumbnail: "/images/project2.png",
-      githubLink: "https://github.com/Eirage-Abid/text-treasure",
-      spanClassName: "md:col-span-5",
+      subtitle: "A modern, distraction-free e-book discovery and reading platform with reading progress tracking, a personal PDF library, bookmarks, and a clean in-app book viewer, powered by Flutter and Firebase.",
+      thumbnail: "src/assets/work-experience/text-treasure-showcase.png",
+      githubLink: "https://github.com/Eirage-Abid/text_treasure_first_version",
+      aspect: 2400 / 1200,
     },
-    {
-      id: 3,
-      title: "YC Directory - Startup Showcase",
-      subtitle: "A directory app showcasing innovative startups and founders",
-      thumbnail: "/images/project3.png",
-      githubLink: "https://github.com/Eirage-Abid/yc-directory",
-      spanClassName: "md:col-span-5",
-    },
+    // {
+    //   id: 3,
+    //   title: "YC Directory - Startup Showcase",
+    //   subtitle: "A directory app showcasing innovative startups and founders",
+    //   thumbnail: "/images/project3.png",
+    //   githubLink: "https://github.com/Eirage-Abid/yc-directory",
+    //   aspect: 824 / 645,
+    // },
     {
       id: 4,
-      title: "Your Fourth Project",
-      subtitle: "Project description goes here",
-      thumbnail: "/images/project4.png",
-      githubLink: "https://github.com/Eirage-Abid/project4",
-      spanClassName: "md:col-span-7",
+      title: "Recorvea - Dental Clinical Records App",
+      subtitle: "A digital workspace for dentists: register patients through a guided step-by-step flow, capture medical history, BPE scores and FDI tooth charts, collect signed informed consent, and track practice insights from one dashboard.",
+      thumbnail: "src/assets/work-experience/recorvea-banner-dark.png",
+      githubLink: "https://github.com/Eirage-Abid/recorvea", // TODO: confirm repo URL
+      aspect: 2400 / 1350,
     },
   ];
   

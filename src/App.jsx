@@ -6,7 +6,7 @@ import FeatureCards from './sections/FeatureCards.jsx'
 import Experience from './sections/Experience.jsx'
 import TechStack from './sections/TechStack.jsx'
 import Testimonials from './sections/Testimonials.jsx'
-// import Contact from './sections/Contact.jsx'
+import Contact from './sections/Contact.jsx'
 import AnimatedCounter from './components/AnimatedCounter.jsx'
 
 const App = () => {
@@ -14,13 +14,12 @@ const App = () => {
     <>
     <NavBar />
     < Hero />
-    <AnimatedCounter />
-    <Experience />
     <ShowcaseSection />
+    <Experience />
      <FeatureCards />
     <TechStack />  
-    <Testimonials />
-    {/* <Contact /> */}
+    {/* <Testimonials /> */}
+    <Contact />
     </>
   )
 }
