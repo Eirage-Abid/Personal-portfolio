@@ -3,8 +3,13 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { expCards, expWords } from "../constants";
 import TitleHeader from "../components/TitleHeader";
+import { monthsInRange, formatDuration } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
+
+// Durations are worked out from each role's date range, so they stay current
+const totalMonths = expCards.reduce((sum, card) => sum + monthsInRange(card.date), 0);
+const totalYears = Math.floor(totalMonths / 12);
 
 const Experience = () => {
   useGSAP(() => {
@@ -33,31 +38,30 @@ const Experience = () => {
       },
     });
 
-    // Animate the timeline height as the user scrolls
-    // from the top of the timeline to 70% down the screen
-    // The timeline height should scale down from 1 to 0
-    // as the user scrolls up the screen
-    gsap.to(".timeline", {
-      // Set the origin of the animation to the bottom of the timeline
-      transformOrigin: "bottom bottom",
-      // Animate the timeline height over 1 second
-      ease: "power1.inOut",
-      // Trigger the animation when the timeline is at the top of the screen
-      // and end it when the timeline is at 70% down the screen
-      scrollTrigger: {
-        trigger: ".timeline",
-        start: "top center",
-        end: "70% center",
-        // Update the animation as the user scrolls
-        onUpdate: (self) => {
-          // Scale the timeline height as the user scrolls
-          // from 1 to 0 as the user scrolls up the screen
-          gsap.to(".timeline", {
-            scaleY: 1 - self.progress,
-          });
+    // Reveal the gradient timeline line as the user scrolls: the white
+    // .timeline cover shrinks from the top, tied directly to scroll position
+    // (scrub), so it always matches where you are in the section.
+    gsap.fromTo(
+      ".timeline",
+      { scaleY: 1 },
+      {
+        scaleY: 0,
+        ease: "none",
+        transformOrigin: "bottom center",
+        scrollTrigger: {
+          trigger: ".timeline-wrapper",
+          start: "top 70%",
+          end: "bottom 60%",
+          scrub: 0.6,
         },
-      },
-    });
+      }
+    );
+
+    // Fonts and images can change the page height after this runs, which would
+    // leave the scroll positions stale. Re-measure once everything has loaded.
+    const refresh = () => ScrollTrigger.refresh();
+    window.addEventListener("load", refresh);
+    document.fonts?.ready.then(refresh);
 
     // Loop through each expText element and animate them in
     // as the user scrolls to each text element
@@ -75,21 +79,23 @@ const Experience = () => {
         },
       });
     });
+
+    return () => window.removeEventListener("load", refresh);
   }, []);
 
   return (
     <section
       id="experience"
-      className="flex-center px-5 md:px-10 xl:px-0 md:mt-16 mt-10"
+      className="flex-center px-5 md:px-10 md:mt-16 mt-10"
     >
-      <div className="w-full h-full md:px-20 px-5">
+      <div className="site-container">
         <TitleHeader title="My Experience" />
 
         <div className="md:mt-24 mt-16 flex flex-col xl:flex-row xl:gap-20 gap-14">
           {/* Left: hero-style summary of my experience */}
           <div className="xl:w-2/6 xl:self-center">
             <div className="exp-intro">
-              <h1>2+ Years of</h1>
+              <h1>{totalYears}+ Years of</h1>
               <h1>Building for</h1>
               <h1>
                 {/* Rotating word, like the hero's word slider */}
@@ -108,6 +114,10 @@ const Experience = () => {
                 Software Engineer, I&apos;ve grown by shipping real
                 products, keeping systems stable, and learning on every team.
               </p>
+              <div className="mt-8 inline-flex w-fit items-center gap-3 rounded-full border border-black/10 bg-white px-5 py-2.5 shadow-[0_10px_30px_-18px_rgba(0,0,0,0.4)]">
+                <span className="text-sm uppercase tracking-[0.2em] text-blue-50">Total experience</span>
+                <span className="text-base font-semibold text-black">{formatDuration(totalMonths)}</span>
+              </div>
             </div>
           </div>
 
@@ -129,14 +139,23 @@ const Experience = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`${card.company} on LinkedIn`}
-                        title={`${card.company} on LinkedIn`}
-                        className="timeline-logo transition hover:scale-105 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2"
+                        className="timeline-logo group/logo relative transition hover:scale-105 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2"
                       >
                         <img
                           src={card.logoPath}
                           alt={`${card.company} logo`}
                           className="size-full rounded-full object-contain p-1"
                         />
+                        {/* Bubble with the company name, shown on hover / keyboard focus */}
+                        <span
+                          aria-hidden="true"
+                          className="company-bubble pointer-events-none absolute left-1/2 top-full z-50 mt-3 flex -translate-x-1/2 translate-y-1 items-center gap-2 whitespace-nowrap rounded-full bg-black px-4 py-2 text-sm font-semibold text-white opacity-0 shadow-xl transition-all duration-300 group-hover/logo:translate-y-0 group-hover/logo:opacity-100 group-focus-visible/logo:translate-y-0 group-focus-visible/logo:opacity-100"
+                        >
+                          {card.company}
+                          <span className="rounded-full bg-white/15 px-2 py-0.5 text-[11px] font-medium text-white/90">
+                            LinkedIn
+                          </span>
+                        </span>
                       </a>
                     ) : (
                       <div className="timeline-logo">
@@ -149,7 +168,11 @@ const Experience = () => {
                     )}
                     <div>
                       <h1 className="font-semibold text-3xl">{card.title}</h1>
-                      <p className="my-5 text-black-50">🗓️&nbsp;{card.date}</p>
+                      <p className="my-5 text-black-50">
+                        🗓️&nbsp;{card.date}
+                        <span className="mx-2 text-black-50/40">·</span>
+                        <span className="font-medium">{formatDuration(monthsInRange(card.date))}</span>
+                      </p>
                       <p className="text-[#839CB5] italic">Responsibilities</p>
                       <ul className="list-disc ms-5 mt-5 flex flex-col gap-5 text-white-50">
                         {card.responsibilities.map((responsibility, index) => (

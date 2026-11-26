@@ -42,10 +42,10 @@ const Hero = () => {
   });
 
   return (
-    <section id="hero" className="relative overflow-hidden">
-      <div className="hero-layout">
+    <section id="hero" className="relative overflow-hidden px-5 md:px-10">
+      <div className="hero-layout site-container">
 
-        <header className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5">
+        <header className="flex flex-col justify-center">
           <div className="flex flex-col gap-7">
             <div className="hero-text">
               <h1>
@@ -84,7 +84,9 @@ const Hero = () => {
             />
           </div>
         </header>
-  <figure className="hero-visual hidden md:flex items-center justify-center">
+        <figure className="hero-visual flex items-center justify-center lg:justify-end lg:pr-8">
+          {/* Badges are positioned relative to this wrapper, so they stay attached to the photo */}
+          <div className="relative">
           <div className="visual-outer">
             <div className="visual-inner  transition">
               <img src={eirageImg} alt="Eirage" className="visual-image overflow-hidden" />
@@ -113,6 +115,7 @@ const Hero = () => {
               <path d="M14.5 7L20 12l-5.5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
             </svg>
             <span>Software Engineer</span>
+          </div>
           </div>
         </figure>
       </div>
