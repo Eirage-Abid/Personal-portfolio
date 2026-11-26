@@ -11,12 +11,12 @@ for (let i = 0; i < showcaseCards.length; i += 2) {
 
 const AppShowcase = () => {
   return (
-    <section id="work" className="flex-center md:mt-40 mt-20 section-padding xl:px-0">
-      <div className="w-full">
+    <section id="work" className="flex-center px-5 md:px-10 mt-10 md:mt-16">
+      <div className="site-container">
         <TitleHeader title="My Work" />
 
-        <div className="mt-8 flex justify-center px-0 md:px-5">
-          <div className="flex w-full max-w-[1600px] flex-col gap-6">
+        <div className="mt-8 flex justify-center">
+          <div className="flex w-full flex-col gap-6">
             {rows.map((row, i) => (
               <div key={i} className="flex flex-col gap-6 md:flex-row md:justify-center">
                 {row.map((project) => (

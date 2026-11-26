@@ -11,10 +11,7 @@ const navLinks = [
       name: "Skills",
       link: "#skills",
     },
-    {
-      name: "Testimonials",
-      link: "#testimonials",
-    },
+    // Testimonials link removed while the Testimonials section is hidden in App.jsx
   ];
   
   const words = [
@@ -254,6 +251,23 @@ const navLinks = [
     },
   ];
   
+  // Contact section details. Leave a value empty ("") to hide that row.
+  const contactInfo = {
+    email: "", // TODO: your public email, e.g. "you@example.com"
+    linkedin: "", // TODO: your LinkedIn profile URL
+    github: "https://github.com/Eirage-Abid",
+    location: "", // TODO: e.g. "Islamabad, Pakistan"
+  };
+
+  // Chips the visitor can pick in the contact form
+  const contactInterests = [
+    "Mobile App",
+    "Web App",
+    "Full-time Role",
+    "Freelance Project",
+    "Just Saying Hi",
+  ];
+
   const showcaseCards = [
     {
       id: 1,
@@ -301,4 +315,6 @@ const navLinks = [
     techStackIcons,
     navLinks,
     showcaseCards,
+    contactInfo,
+    contactInterests,
   };

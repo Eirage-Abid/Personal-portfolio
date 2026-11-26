@@ -3,7 +3,8 @@ import TitleHeader from "../components/TitleHeader";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 
 const FeatureCards = () => (
-  <div className="w-full padding-x-lg mt-32">
+  <div className="w-full px-5 md:px-10 mt-32">
+    <div className="site-container">
     <TitleHeader title="Why Work With Me" />
     <div className="mx-auto grid-3-cols">
       {abilities.map(({ imgPath, title, desc }) => (
@@ -24,6 +25,7 @@ const FeatureCards = () => (
           </CardBody>
         </CardContainer>
       ))}
+    </div>
     </div>
   </div>
 );
